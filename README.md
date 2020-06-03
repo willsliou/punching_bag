@@ -1,2 +1,2 @@
 # punching_bag
-punching bag
+Measuring punching power using accelerometer sensor and microcontroller
