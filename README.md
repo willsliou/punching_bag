@@ -1,7 +1,2 @@
 # Punching Power
-Measuring punching power using accelerometer sensor and microcontroller
-
-1)
-GY-521 with Arduino
-https://create.arduino.cc/projecthub/Nicholas_N/how-to-use-the-accelerometer-gyroscope-gy-521-6dfc19
-
+Measure punching power using a RPi 4 and an AIS328DQTR accelerometer sensor.
