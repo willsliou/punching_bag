@@ -6,6 +6,7 @@
 
 import smbus
 import time
+from datetime import datetime
 
 # Get I2C bus
 bus = smbus.SMBus(1)
@@ -20,42 +21,58 @@ bus.write_byte_data(0x18, 0x20, 0x27)
 #		0x30(48)	Continuous update, Full-scale selection = +/-8G
 bus.write_byte_data(0x18, 0x23, 0x30)
 
-time.sleep(0.5)
+# open files
+f= open("Accer.txt","w+")
+f.write("TimeNow\tX-Axis\tY-Axis\tZ-Axis\r\n")
+counter = 60 # 1 mins ; 0.5 sec per loop
+now = datetime.now()
 
-# AIS328DQTR address, 0x18(24)
-# Read data back from 0x28(40), 2 bytes
-# X-Axis LSB, X-Axis MSB
-data0 = bus.read_byte_data(0x18, 0x28)
-data1 = bus.read_byte_data(0x18, 0x29)
+while counter > 1:
+	time.sleep(1.0)
+	#time.sleep(0.5)
+	# AIS328DQTR address, 0x18(24)
+	# Read data back from 0x28(40), 2 bytes
+	# X-Axis LSB, X-Axis MSB
+	data0 = bus.read_byte_data(0x18, 0x28)
+	data1 = bus.read_byte_data(0x18, 0x29)
 
-# Convert the data
-xAccl = data1 * 256 + data0
-if xAccl > 32767 :
-	xAccl -= 65536
+	# Convert the data
+	xAccl = data1 * 256 + data0
+	if xAccl > 32767 :
+		xAccl -= 65536
 
-# AIS328DQTR address, 0x18(24)
-# Read data back from 0x2A(42), 2 bytes
-# Y-Axis LSB, Y-Axis MSB
-data0 = bus.read_byte_data(0x18, 0x2A)
-data1 = bus.read_byte_data(0x18, 0x2B)
+	# AIS328DQTR address, 0x18(24)
+	# Read data back from 0x2A(42), 2 bytes
+	# Y-Axis LSB, Y-Axis MSB
+	data0 = bus.read_byte_data(0x18, 0x2A)
+	data1 = bus.read_byte_data(0x18, 0x2B)
 
-# Convert the data
-yAccl = data1 * 256 + data0
-if yAccl > 32767 :
-	yAccl -= 65536
+	# Convert the data
+	yAccl = data1 * 256 + data0
+	if yAccl > 32767 :
+		yAccl -= 65536
 
-# AIS328DQTR address, 0x18(24)
-# Read data back from 0x2C(44), 2 bytes
-# Z-Axis LSB, Z-Axis MSB
-data0 = bus.read_byte_data(0x18, 0x2C)
-data1 = bus.read_byte_data(0x18, 0x2D)
+	# AIS328DQTR address, 0x18(24)
+	# Read data back from 0x2C(44), 2 bytes
+	# Z-Axis LSB, Z-Axis MSB
+	data0 = bus.read_byte_data(0x18, 0x2C)
+	data1 = bus.read_byte_data(0x18, 0x2D)
 
-# Convert the data
-zAccl = data1 * 256 + data0
-if zAccl > 32767 :
-	zAccl -= 65536
+	# Convert the data
+	zAccl = data1 * 256 + data0
+	if zAccl > 32767 :
+		zAccl -= 65536
 
-# Output data to screen
-print "Acceleration in X-Axis : %d" %xAccl
-print "Acceleration in Y-Axis : %d" %yAccl
-print "Acceleration in Z-Axis : %d" %zAccl
+	# Output data to screen
+	print "Acceleration in X-Axis : %d" %xAccl
+	print "Acceleration in Y-Axis : %d" %yAccl
+	print "Acceleration in Z-Axis : %d" %zAccl
+	now = datetime.now()
+	current_time = now.strftime("%H:%M:%S")
+	print("Current Time =", current_time)
+	print "\n"
+	f.write("%s\t%d\t%d\t%d\n" % (current_time, xAccl, yAccl, zAccl))
+	counter -= 1
+	Start_Time += Time_Incr
+
+f.close()
