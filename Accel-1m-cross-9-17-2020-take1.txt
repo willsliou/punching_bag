@@ -1,4 +1,4 @@
- TimeNow	X-Axis	Y-Axis	Z-Axis
+TimeNow	X-Axis	Y-Axis	Z-Axis
 11:39:30	-1984	3616	464
 11:39:31	-2016	3680	480
 11:39:32	-2000	3648	480
