@@ -23,7 +23,7 @@ bus.write_byte_data(0x18, 0x23, 0x30)
 
 # open files
 f= open("Accer.txt","w+")
-f.write("TimeNow\tX-Axis\tY-Axis\tZ-Axis\r\n")
+f.write("TimeNow\t\t\tX-Axis\tY-Axis\tZ-Axis\r\n")
 counter = 60 # 1 mins ; 0.5 sec per loop
 now = datetime.now()
 
