@@ -69,10 +69,9 @@ while counter > 1:
 	print "Acceleration in Z-Axis : %d" %zAccl
 	now = datetime.now()
 	current_time = now.strftime("%H:%M:%S")
-	print("Current Time =", current_time)
+	print "Current Time =", current_time
 	print "\n"
 	f.write("%s\t%d\t%d\t%d\n" % (current_time, xAccl, yAccl, zAccl))
 	counter -= 1
-	Start_Time += Time_Incr
 
-f.close()
+f.close()	
