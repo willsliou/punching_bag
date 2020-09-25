@@ -7,6 +7,7 @@ Increase accuracy -> adjust punching bag center of gravity
 
 Resources used:
 
-https://www.explainthatstuff.com/center-of-gravity.html
-https://www.gloveworx.com/blog/all-about-your-center-gravity/#:~:text=Your%20Center%20Of%20Gravity%20And%20Boxing&text=That's%20because%20the%20center%20of,find%20its%20way%20up%20again.
-https://www.reddit.com/r/arduino/comments/kf2zb/how_to_make_a_test_your_might_punch_sensor/
+https://www.explainthatstuff.com/center-of-gravity.html\
+https://www.gloveworx.com/blog/all-about-your-center-gravity/#:~:text=Your%20Center%20Of%20Gravity%20And%20Boxing&text=That's%20because%20the%20center%20of,find%20its%20way%20up%20again. \
+https://www.reddit.com/r/arduino/comments/kf2zb/how_to_make_a_test_your_might_punch_sensor/ \
+https://boxingscience.co.uk/science-behind-punch/ \
