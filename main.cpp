@@ -19,12 +19,13 @@ int main() {
     // Declare variables
     std::string inputLime;
     int x, y, z;
-    // Skip first line
-    std::string dummyLine;
-    std::getline(myFile, dummyLine);
-
     int timeHour, timeMin, timeSec, xx, yy, zz;
     int myMaxX = -1, myMaxY= -1, myMaxZ = -1;
+    
+    // Skip first line in the file
+    std::string dummyLine;
+    std::getline(myFile, dummyLine);
+    
     // Begin reading stream
     myFile >> timeHour >> timeMin >> timeSec >> xx >> yy >> zz;
     cout << timeHour << ":" << timeMin << ":"<< timeSec << endl;
