@@ -27,11 +27,14 @@ int main() {
     std::getline(myFile, dummyLine);
     
     // Begin reading stream
-    myFile >> timeHour >> timeMin >> timeSec >> xx >> yy >> zz;
-    cout << timeHour << ":" << timeMin << ":"<< timeSec << endl;
-    cout << xx << endl;
-    cout << yy << endl;
-    cout << zz << endl;
+    while (!myFile.eof()) {
+        myFile >> timeHour;
+        myFile >> timeMin >> timeSec >> xx >> yy >> zz;
+        cout << timeHour << ":" << timeMin << ":"<< timeSec << endl;
+        cout << xx << endl;
+        cout << yy << endl;
+        cout << zz << endl;
+    }
     // while (myFile >> time >> x >> y >> z) {
 
     //     if (myMaxX < x) { myMaxX = x;}
